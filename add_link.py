@@ -53,6 +53,10 @@ def main():
     # Find the date
     date_str = soup.find_all('i')[0].text.strip()
 
+    # Find the author
+    author = soup.find_all('b')[0].text.strip()
+    entry['author'] = {'name': author, 'email': 'noreply@openstack.org'}
+
     entry = {
         'url': args.url,
         'body': body,
