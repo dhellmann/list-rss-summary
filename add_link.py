@@ -20,10 +20,6 @@ def main():
         help='the data file for the feed',
     )
     parser.add_argument(
-        'rss_file',
-        help='the output rss file',
-    )
-    parser.add_argument(
         'url',
         help='the URL to add',
     )
