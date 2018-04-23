@@ -29,9 +29,10 @@ def main():
         with open(args.data_file, 'r', encoding='utf-8') as f:
             data = json.loads(f.read())
     except FileNotFoundError:
-        data = []
+        print('ERROR: Could not read feed data file {}'.format(args.data_file))
+        return 1
 
-    for e in data:
+    for e in data['entries']:
         if e['url'] == args.url:
             print('ERROR: Already have {}'.format(args.url))
             return 1
@@ -54,7 +55,7 @@ def main():
         'body': body,
         'title': title,
     }
-    data.append(entry)
+    data['entries'].append(entry)
     with open(args.data_file, 'w', encoding='utf-8') as f:
         f.write(json.dumps(data))
 
