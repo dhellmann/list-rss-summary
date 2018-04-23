@@ -1,3 +1,4 @@
 BeautifulSoup4>=4.6.0
 lxml>=4.2.1
 requests>=2.18.4
+feedgen>=0.6.1
