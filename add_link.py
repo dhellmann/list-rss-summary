@@ -60,6 +60,7 @@ def main():
         'date': date_str,
     }
     data['entries'].append(entry)
+    print('There are now {} entries'.format(len(data['entries']))
     with open(args.data_file, 'w', encoding='utf-8') as f:
         f.write(json.dumps(data))
 
