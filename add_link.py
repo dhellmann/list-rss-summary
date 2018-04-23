@@ -62,7 +62,7 @@ def main():
     data['entries'].append(entry)
     print('There are now {} entries'.format(len(data['entries']))
     with open(args.data_file, 'w', encoding='utf-8') as f:
-        f.write(json.dumps(data))
+        json.dump(data, f, indent=2)
 
 
 if __name__ == '__main__':
