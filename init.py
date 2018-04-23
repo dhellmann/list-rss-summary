@@ -15,14 +15,9 @@ def main():
         help='the feed ID (usually a URL)',
     )
     parser.add_argument(
-        '--author',
-        help='the feed author',
-        default='OpenStack Community Members',
-    )
-    parser.add_argument(
         '--title',
         help='the feed title',
-        default='OpenStack Community Announcements',
+        default='OpenStack Contributor Community Announcements',
     )
     parser.add_argument(
         '--link',
@@ -34,6 +29,11 @@ def main():
         help='the language for the feed',
         default='en',
     )
+    parser.add_argument(
+        '--description',
+        help='the description for the feed',
+        default='Announcements from OpenStack community mailing lists',
+    )
     args = parser.parse_args()
 
     properties = {
@@ -41,6 +41,7 @@ def main():
         'title': args.title,
         'link': args.link,
         'language': args.language,
+        'description': args.description,
     }
     if args.id:
         properties['id'] = args.id
