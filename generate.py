@@ -31,7 +31,7 @@ def main():
 
     for e in data['entries']:
         entry = gen.add_entry()
-        entry.id(e['url'])
+        entry.guid(e['url'], permalink=True)
         entry.title(e['title'])
         entry.link(href=e['url'])
         entry.content(e['body'])
