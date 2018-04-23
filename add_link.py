@@ -45,15 +45,19 @@ def main():
     title = list(soup.find_all('h1'))[1].text
     title = TITLE_CLEANUP.sub('', title).strip()
 
+    # Get the whole body, including the pre tags.
     start = START.search(page.text)
     end = END.search(page.text)
-
     body = page.text[start.span()[1]:end.span()[0]].strip()
+
+    # Find the date
+    date_str = soup.find_all('i')[0].text.strip()
 
     entry = {
         'url': args.url,
         'body': body,
         'title': title,
+        'date': date_str,
     }
     data['entries'].append(entry)
     with open(args.data_file, 'w', encoding='utf-8') as f:

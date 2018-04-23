@@ -35,6 +35,7 @@ def main():
         entry.title(e['title'])
         entry.link(href=e['url'])
         entry.content(e['body'])
+        entry.published(e['date'])
 
     gen.rss_file(args.rss_file)
 
